@@ -19,14 +19,14 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       floatingActionButton: Container(
-        // margin: EdgeInsets.only(bottom: 10.0),
+        margin: EdgeInsets.only(bottom: 10),
         child: FloatingActionButton(
           child: SvgPicture.asset('assets/icons/search.svg',
               color: palette.secondary['main'], semanticsLabel: 'Search'),
           onPressed: () {},
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Container(
           height: size.height,
           width: size.width,
@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                     ListProductsHorizontal(
                       title: 'Novedades de hoy',
                       products: products,
-                      height: size.height * 0.36,
+                      height: 300,
                     ),
                     SizedBox(
                       height: 20,
@@ -60,7 +60,7 @@ class HomePage extends StatelessWidget {
                     ListCategoriesHorizontal(
                       categories: categories,
                       title: 'Categorías populares',
-                      height: size.height * 0.11,
+                      height: 106,
                     ),
                     SizedBox(
                       height: 120,

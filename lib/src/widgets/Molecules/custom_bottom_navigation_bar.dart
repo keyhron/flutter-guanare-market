@@ -10,7 +10,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
     // final route = ModalRoute.of(context)!.settings.name;
 
     return Container(
-      height: 80,
+      height: 67,
       color: Colors.white,
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
       width: size.width,
