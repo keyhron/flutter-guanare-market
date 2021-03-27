@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: themeLight,
+        theme: CustomTheme.lightTheme,
         title: 'Guanare Market',
         initialRoute: 'home',
         routes: {'home': (_) => HomePage()});

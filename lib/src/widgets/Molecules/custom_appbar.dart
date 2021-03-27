@@ -17,8 +17,8 @@ class Navbar extends StatelessWidget {
       top: true,
       bottom: false,
       child: Container(
-        margin: EdgeInsets.only(top: 10.0),
-        padding: EdgeInsets.symmetric(horizontal: 30.0),
+        margin: EdgeInsets.only(top: 20.0),
+        padding: EdgeInsets.only(left: 26.0, right: 12),
         width: double.infinity,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,11 +28,11 @@ class Navbar extends StatelessWidget {
               children: [
                 Text(
                   this.title,
-                  style: themeLight.textTheme.headline2,
+                  style: CustomTheme.lightTheme.textTheme.headline2,
                 ),
                 Text(
                   this.subtitle ?? '',
-                  style: themeLight.textTheme.bodyText1,
+                  style: CustomTheme.lightTheme.textTheme.bodyText1,
                 ),
               ],
             ),

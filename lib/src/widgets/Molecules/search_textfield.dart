@@ -21,7 +21,7 @@ class SearchTextField extends StatelessWidget {
       cursorColor: palette.primary['main'],
       cursorHeight: 22,
       padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 13.0),
-      style: themeLight.textTheme.bodyText2,
+      style: CustomTheme.lightTheme.textTheme.bodyText2,
       decoration: BoxDecoration(
           color: palette.secondary['dark'],
           borderRadius: BorderRadius.circular(10)),
