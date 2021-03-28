@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:guanare_market/src/providers/bottom_navigation_provider.dart';
+import 'package:guanare_market/src/pages/cart_page.dart';
+import 'package:guanare_market/src/pages/home_page.dart';
 import 'package:guanare_market/src/theme/palette.dart';
-import 'package:provider/provider.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Palette palette = Palette();
     final size = MediaQuery.of(context).size;
-
-    final bottomNavigationProvider =
-        Provider.of<BottomNavigationProvider>(context);
+    final route = ModalRoute.of(context)!.settings.name;
 
     return Container(
       height: 80,
@@ -49,7 +47,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           padding: EdgeInsets.all(10.0),
                           child: Center(
                             child: SvgPicture.asset(
-                              bottomNavigationProvider.currentPage == 0
+                              route == 'home'
                                   ? 'assets/icons/home-filled.svg'
                                   : 'assets/icons/home.svg',
                               height: 26.0,
@@ -59,7 +57,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                          bottomNavigationProvider.currentPage = 0;
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (_, __, ___) => HomePage(),
+                                transitionDuration: Duration(seconds: 0),
+                                settings: RouteSettings(name: 'home')),
+                          );
                         }),
                   ),
                   Spacer(),
@@ -73,7 +77,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           padding: EdgeInsets.all(10.0),
                           child: Center(
                             child: SvgPicture.asset(
-                                bottomNavigationProvider.currentPage == 1
+                                route == 'cart'
                                     ? 'assets/icons/shopping-cart-filled.svg'
                                     : 'assets/icons/shopping-cart.svg',
                                 color: palette.primary['main'],
@@ -82,7 +86,13 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                          bottomNavigationProvider.currentPage = 1;
+                          Navigator.push(
+                            context,
+                            PageRouteBuilder(
+                                pageBuilder: (_, __, ___) => CartPage(),
+                                transitionDuration: Duration(seconds: 0),
+                                settings: RouteSettings(name: 'cart')),
+                          );
                         }),
                   ),
                 ],
