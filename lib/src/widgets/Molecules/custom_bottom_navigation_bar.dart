@@ -57,7 +57,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             PageRouteBuilder(
                                 pageBuilder: (_, __, ___) => HomePage(),
@@ -86,7 +86,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             PageRouteBuilder(
                                 pageBuilder: (_, __, ___) => CartPage(),

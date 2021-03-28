@@ -3,6 +3,7 @@ import 'package:guanare_market/src/pages/cart_page.dart';
 
 // Pages
 import 'package:guanare_market/src/pages/home_page.dart';
+import 'package:guanare_market/src/pages/menu_page.dart';
 
 // Theme Light
 import 'package:guanare_market/src/theme/theme_light.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         'home': (_) => HomePage(),
         'cart': (_) => CartPage(),
+        'menu': (_) => MenuPage(),
       },
     );
   }

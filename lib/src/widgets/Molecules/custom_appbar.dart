@@ -65,7 +65,9 @@ class Navbar extends StatelessWidget {
                     ),
                   ),
                 ),
-                onTap: () {}),
+                onTap: () {
+                  Navigator.pushNamed(context, 'menu');
+                }),
           ],
         ),
       ),
