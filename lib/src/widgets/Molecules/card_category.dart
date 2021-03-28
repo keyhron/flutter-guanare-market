@@ -31,7 +31,7 @@ class CardCategory extends StatelessWidget {
                 width: widthCard,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
-                    Colors.black.withOpacity(0.67),
+                    Colors.black.withOpacity(0.62),
                     Colors.transparent
                   ]),
                 ),

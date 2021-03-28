@@ -1,20 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:guanare_market/src/theme/palette.dart';
+import 'package:flutter_svg/flutter_svg.dart' show SvgPicture;
 import 'package:guanare_market/src/theme/theme_light.dart';
 
 class SearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final palette = Palette();
-
     return CupertinoTextField(
       prefix: Container(
           padding: EdgeInsets.only(left: 16.0),
-          child: Icon(
-            Icons.search,
-            color: palette.primary['lighter'],
-          )),
+          child: SvgPicture.asset('assets/icons/search.svg',
+              color: palette.secondary['lighter'], semanticsLabel: 'Search')),
       placeholder: 'Buscar',
       placeholderStyle: TextStyle(
           fontWeight: FontWeight.bold, color: CupertinoColors.placeholderText),

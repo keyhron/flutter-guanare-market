@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:guanare_market/src/models/product_model.dart';
 import 'package:guanare_market/src/theme/theme_light.dart';
 
@@ -42,14 +43,22 @@ class CardProduct extends StatelessWidget {
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                ElevatedButton(
-                                  onPressed: () {},
-                                  child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 10.0),
-                                      child: Text('Add to cart')),
+                                Expanded(
+                                  child: ElevatedButton(
+                                    onPressed: () {},
+                                    child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 10.0),
+                                        child: SvgPicture.asset(
+                                            'assets/icons/shopping-cart.svg',
+                                            color: palette.secondary['main'],
+                                            height: 20.0,
+                                            semanticsLabel: 'Cart')),
+                                  ),
                                 ),
-                                Spacer(),
+                                SizedBox(
+                                  width: 20,
+                                ),
                                 ElevatedButton(
                                   onPressed: () {},
                                   child: Container(
