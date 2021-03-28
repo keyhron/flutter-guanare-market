@@ -17,9 +17,7 @@ class CartPage extends StatelessWidget {
 
     return Scaffold(
       floatingActionButton: CustomFloatingActionButton(
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, 'cart');
-          },
+          onPressed: () {},
           child: SvgPicture.asset('assets/icons/search.svg',
               color: palette.secondary['main'], semanticsLabel: 'Search')),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

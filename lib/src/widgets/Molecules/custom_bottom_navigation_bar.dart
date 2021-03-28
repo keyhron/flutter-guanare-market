@@ -9,7 +9,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final Palette palette = Palette();
     final size = MediaQuery.of(context).size;
-    final route = ModalRoute.of(context)!.settings.name;
+    final routeName = ModalRoute.of(context)!.settings.name;
 
     return Container(
       height: 80,
@@ -47,7 +47,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           padding: EdgeInsets.all(10.0),
                           child: Center(
                             child: SvgPicture.asset(
-                              route == 'home'
+                              routeName == 'home'
                                   ? 'assets/icons/home-filled.svg'
                                   : 'assets/icons/home.svg',
                               height: 26.0,
@@ -77,7 +77,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           padding: EdgeInsets.all(10.0),
                           child: Center(
                             child: SvgPicture.asset(
-                                route == 'cart'
+                                routeName == 'cart'
                                     ? 'assets/icons/shopping-cart-filled.svg'
                                     : 'assets/icons/shopping-cart.svg',
                                 color: palette.primary['main'],
