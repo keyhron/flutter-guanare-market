@@ -1,44 +1,151 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-// Palette
+import 'package:guanare_market/src/models/product_model.dart';
 import 'package:guanare_market/src/theme/palette.dart';
+import 'package:guanare_market/src/theme/theme_light.dart';
+import 'package:guanare_market/src/widgets/Molecules/card_product_cart.dart';
 
 // Widgets
-import 'package:guanare_market/src/widgets/Atoms/custom_floating_action_button.dart';
 import 'package:guanare_market/src/widgets/Molecules/custom_bottom_navigation_bar.dart';
-import 'package:guanare_market/src/widgets/Molecules/custom_appbar.dart';
 
 class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final palette = Palette();
     final size = MediaQuery.of(context).size;
+    final palette = Palette();
 
     return Scaffold(
-      floatingActionButton: CustomFloatingActionButton(
-          onPressed: () {},
-          child: SvgPicture.asset('assets/icons/search.svg',
-              color: palette.secondary['main'], semanticsLabel: 'Search')),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: CustomBottomNavigationBar(),
-      body: Container(
-          height: size.height,
-          width: size.width,
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+      body: SafeArea(
+        top: true,
+        bottom: false,
+        child: Container(
+            height: size.height,
+            width: size.width,
             child: Column(
               children: [
-                Navbar(
-                  title: 'Guanare Market',
-                  subtitle: 'Carrito de compras',
-                ),
-                SizedBox(
-                  height: 80,
+                Container(
+                  width: size.width,
+                  padding: EdgeInsets.symmetric(horizontal: 14.0),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: size.height * 0.57,
+                        child: SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child: Column(
+                            children: [
+                              CardProductCart(products[1]),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              CardProductCart(products[2]),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              CardProductCart(products[4]),
+                              SizedBox(
+                                height: 12,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Container(
+                        width: double.infinity,
+                        height: 170,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 26.0),
+                        decoration: BoxDecoration(
+                            color: palette.primary['main'],
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 12,
+                                  color: Colors.black.withOpacity(0.05),
+                                  spreadRadius: 1,
+                                  offset: Offset(0.0, 0.0))
+                            ],
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Cantidad de productos',
+                                  style: TextStyle(
+                                      color: palette.secondary['ultraDark']!
+                                          .withOpacity(0.8),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text('3',
+                                    style: CustomTheme
+                                        .lightTheme.textTheme.headline4!
+                                        .copyWith(
+                                            color: palette.secondary['main'])),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Precios de productos',
+                                  style: TextStyle(
+                                      color: palette.secondary['ultraDark']!
+                                          .withOpacity(0.8),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text('\$ 2,152.60',
+                                    style: CustomTheme
+                                        .lightTheme.textTheme.headline4!
+                                        .copyWith(
+                                            color: palette.secondary['main'])),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Container(
+                              height: 2,
+                              width: double.infinity,
+                              color:
+                                  palette.secondary['main']!.withOpacity(0.1),
+                            ),
+                            SizedBox(
+                              height: 16,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Total:',
+                                  style: CustomTheme
+                                      .lightTheme.textTheme.headline4!
+                                      .copyWith(
+                                          color:
+                                              palette.secondary['ultraDark']),
+                                ),
+                                Text('\$ 2,152.60',
+                                    style: CustomTheme
+                                        .lightTheme.textTheme.headline4!
+                                        .copyWith(
+                                            color: palette.secondary['main'])),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
-            ),
-          )),
+            )),
+      ),
     );
   }
 }

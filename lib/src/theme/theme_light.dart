@@ -25,8 +25,19 @@ class CustomTheme {
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
                 primary: palette.primary['main'],
-                textStyle:
-                    TextStyle(fontSize: 12, fontWeight: FontWeight.w600))),
+                textStyle: TextStyle(
+                    fontFamily: 'Abel',
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600))),
+
+        // Text button
+        textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+                primary: palette.primary['main'],
+                textStyle: TextStyle(
+                    fontFamily: 'Abel',
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600))),
 
         // Define the default TextTheme. Use this to specify the default
         // text styling for headlines, titles, bodies of text, and more.

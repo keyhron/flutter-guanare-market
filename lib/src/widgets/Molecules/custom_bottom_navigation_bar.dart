@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:guanare_market/src/pages/cart_page.dart';
 import 'package:guanare_market/src/pages/home_page.dart';
 import 'package:guanare_market/src/theme/palette.dart';
+import 'package:guanare_market/src/widgets/Atoms/custom_floating_action_button.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   @override
@@ -97,6 +98,15 @@ class CustomBottomNavigationBar extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            Center(
+              heightFactor: 0,
+              child: CustomFloatingActionButton(
+                child: SvgPicture.asset('assets/icons/search.svg',
+                    color: palette.secondary['main'], semanticsLabel: 'Search'),
+                onPressed: () {},
+                size: 90.0,
+              ),
             )
           ],
         ),
@@ -116,24 +126,24 @@ class RPSCustomPainter extends CustomPainter {
     Path path_0 = Path();
     path_0.moveTo(0, size.height);
     path_0.lineTo(0, 0);
-    path_0.quadraticBezierTo(size.width * 0.2323417, size.height * -0.0015000,
-        size.width * 0.3162250, 0);
+    path_0.quadraticBezierTo(size.width * 0.2407167, size.height * -0.0010313,
+        size.width * 0.3245167, 0);
     path_0.cubicTo(
-        size.width * 0.3987667,
-        size.height * -0.0013125,
-        size.width * 0.3620083,
-        size.height * 0.6600000,
-        size.width * 0.5003500,
-        size.height * 0.6637812);
+        size.width * 0.4080750,
+        size.height * -0.0086563,
+        size.width * 0.3639917,
+        size.height * 0.5814063,
+        size.width * 0.5000333,
+        size.height * 0.5988125);
     path_0.cubicTo(
-        size.width * 0.6330250,
-        size.height * 0.6590312,
-        size.width * 0.5992250,
-        size.height * -0.0070625,
-        size.width * 0.6824333,
-        0);
+        size.width * 0.6325167,
+        size.height * 0.5832500,
+        size.width * 0.5930750,
+        size.height * -0.0165000,
+        size.width * 0.6762833,
+        size.height * 0.0005937);
     path_0.quadraticBezierTo(
-        size.width * 0.7654917, size.height * -0.0056562, size.width, 0);
+        size.width * 0.7585500, size.height * -0.0014375, size.width, 0);
     path_0.lineTo(size.width, size.height);
 
     canvas.drawPath(path_0, paint_0);

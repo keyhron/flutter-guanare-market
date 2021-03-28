@@ -88,13 +88,14 @@ class CardProduct extends StatelessWidget {
                     Text(
                       product.name,
                       style: CustomTheme.lightTheme.textTheme.bodyText2,
+                      overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      '\$ ${product.priceToString}',
+                      '\$ ${product.priceFormated}',
                       style: CustomTheme.lightTheme.textTheme.headline4,
                       textAlign: TextAlign.center,
                     ),
