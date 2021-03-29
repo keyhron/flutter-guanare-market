@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:guanare_market/src/models/product_model.dart';
 import 'package:guanare_market/src/theme/palette.dart';
 import 'package:guanare_market/src/theme/theme_light.dart';
+import 'package:guanare_market/src/widgets/Atoms/custom_floating_action_button.dart';
 import 'package:guanare_market/src/widgets/Molecules/card_product_cart.dart';
 
 // Widgets
@@ -15,6 +17,15 @@ class CartPage extends StatelessWidget {
 
     return Scaffold(
       bottomNavigationBar: CustomBottomNavigationBar(),
+      floatingActionButton: CustomFloatingActionButton(
+        child: SvgPicture.asset('assets/icons/search.svg',
+            color: palette.secondary['main'], semanticsLabel: 'Search'),
+        onPressed: () {
+          print('Click');
+        },
+        size: 80.0,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         top: true,
         bottom: false,
@@ -34,6 +45,9 @@ class CartPage extends StatelessWidget {
                           physics: BouncingScrollPhysics(),
                           child: Column(
                             children: [
+                              SizedBox(
+                                height: 12,
+                              ),
                               CardProductCart(products[1]),
                               SizedBox(
                                 height: 12,
@@ -43,19 +57,16 @@ class CartPage extends StatelessWidget {
                                 height: 12,
                               ),
                               CardProductCart(products[4]),
-                              SizedBox(
-                                height: 12,
-                              ),
                             ],
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: 12,
+                        height: 16,
                       ),
                       Container(
                         width: double.infinity,
-                        height: 170,
+                        height: size.height * 0.202,
                         padding: EdgeInsets.symmetric(
                             horizontal: 20.0, vertical: 26.0),
                         decoration: BoxDecoration(

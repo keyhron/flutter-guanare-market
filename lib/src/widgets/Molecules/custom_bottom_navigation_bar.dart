@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:guanare_market/src/pages/cart_page.dart';
 import 'package:guanare_market/src/pages/home_page.dart';
 import 'package:guanare_market/src/theme/palette.dart';
-import 'package:guanare_market/src/widgets/Atoms/custom_floating_action_button.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   @override
@@ -99,15 +98,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 ],
               ),
             ),
-            Center(
-              heightFactor: 0,
-              child: CustomFloatingActionButton(
-                child: SvgPicture.asset('assets/icons/search.svg',
-                    color: palette.secondary['main'], semanticsLabel: 'Search'),
-                onPressed: () {},
-                size: 90.0,
-              ),
-            )
           ],
         ),
       ),
