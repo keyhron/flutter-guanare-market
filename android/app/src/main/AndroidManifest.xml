@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.guanare_market">
+    package="com.juanbarrios.guanare_market">
    <application
-        android:label="guanare_market"
+        android:label="Guanare Market"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
