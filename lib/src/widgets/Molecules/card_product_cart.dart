@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:guanare_market/src/models/product_model.dart';
 import 'package:guanare_market/src/theme/palette.dart';
 import 'package:guanare_market/src/theme/theme_light.dart';
+import 'package:guanare_market/src/utils/get_assets.dart' show getIcon;
 
 class CardProductCart extends StatelessWidget {
   final Product product;
@@ -95,7 +96,7 @@ class CardProductCart extends StatelessWidget {
                                       right: Radius.zero,
                                       left: Radius.circular(4.0)))),
                           onPressed: () {},
-                          child: SvgPicture.asset('assets/icons/minus.svg',
+                          child: SvgPicture.asset(getIcon('minus'),
                               color: palette.primary['main'],
                               width: 20.0,
                               height: 20.0,
@@ -129,7 +130,7 @@ class CardProductCart extends StatelessWidget {
                                       left: Radius.zero,
                                       right: Radius.circular(4.0)))),
                           onPressed: () {},
-                          child: SvgPicture.asset('assets/icons/plus.svg',
+                          child: SvgPicture.asset(getIcon('plus'),
                               width: 20.0,
                               height: 20.0,
                               color: palette.primary['main'],
@@ -142,7 +143,7 @@ class CardProductCart extends StatelessWidget {
                 ),
                 Expanded(
                   child: TextButton.icon(
-                    icon: SvgPicture.asset('assets/icons/trash.svg',
+                    icon: SvgPicture.asset(getIcon('trash'),
                         width: 16.0,
                         height: 16.0,
                         color: palette.primary['lighter'],

@@ -39,26 +39,23 @@ class CartPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 14.0),
                   child: Column(
                     children: [
-                      Container(
-                        height: size.height * 0.57,
-                        child: SingleChildScrollView(
-                          physics: BouncingScrollPhysics(),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: 12,
-                              ),
-                              CardProductCart(products[1]),
-                              SizedBox(
-                                height: 12,
-                              ),
-                              CardProductCart(products[2]),
-                              SizedBox(
-                                height: 12,
-                              ),
-                              CardProductCart(products[4]),
-                            ],
-                          ),
+                      SingleChildScrollView(
+                        physics: BouncingScrollPhysics(),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 12,
+                            ),
+                            CardProductCart(products[1]),
+                            SizedBox(
+                              height: 12,
+                            ),
+                            CardProductCart(products[2]),
+                            SizedBox(
+                              height: 12,
+                            ),
+                            CardProductCart(products[4]),
+                          ],
                         ),
                       ),
                       SizedBox(
@@ -66,7 +63,7 @@ class CartPage extends StatelessWidget {
                       ),
                       Container(
                         width: double.infinity,
-                        height: size.height * 0.202,
+                        height: 172,
                         padding: EdgeInsets.symmetric(
                             horizontal: 20.0, vertical: 26.0),
                         decoration: BoxDecoration(

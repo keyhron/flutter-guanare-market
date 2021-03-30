@@ -1,28 +1,30 @@
+import 'package:guanare_market/src/utils/get_assets.dart' show getImage;
+
 class Category {
   const Category({required this.name, required this.image});
 
   final String name, image;
 }
 
-final categories = const <Category>[
+final categories = <Category>[
   Category(
     name: 'Ropa',
-    image: 'assets/images/shirt2.jpg',
+    image: getImage('shirt2.jpg'),
   ),
   Category(
     name: 'Vehículos',
-    image: 'assets/images/car2.jpg',
+    image: getImage('car2.jpg'),
   ),
   Category(
     name: 'Electrónica',
-    image: 'assets/images/laptop.jpg',
+    image: getImage('laptop.jpg'),
   ),
   Category(
     name: 'Télefonos',
-    image: 'assets/images/phone.jpg',
+    image: getImage('phone.jpg'),
   ),
   Category(
     name: 'Comida',
-    image: 'assets/images/restaurant.jpg',
+    image: getImage('restaurant.jpg'),
   ),
 ];

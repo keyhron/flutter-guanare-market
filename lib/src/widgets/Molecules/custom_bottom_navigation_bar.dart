@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:guanare_market/src/pages/cart_page.dart';
 import 'package:guanare_market/src/pages/home_page.dart';
 import 'package:guanare_market/src/theme/palette.dart';
+import 'package:guanare_market/src/utils/get_assets.dart' show getIcon;
 
 class CustomBottomNavigationBar extends StatelessWidget {
   @override
@@ -48,8 +49,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           child: Center(
                             child: SvgPicture.asset(
                               routeName == 'home'
-                                  ? 'assets/icons/home-filled.svg'
-                                  : 'assets/icons/home.svg',
+                                  ? getIcon('home-filled')
+                                  : getIcon('home'),
                               height: 26.0,
                               color: palette.primary['main'],
                               semanticsLabel: 'Home',
@@ -78,8 +79,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           child: Center(
                             child: SvgPicture.asset(
                                 routeName == 'cart'
-                                    ? 'assets/icons/shopping-cart-filled.svg'
-                                    : 'assets/icons/shopping-cart.svg',
+                                    ? getIcon('shopping-cart-filled')
+                                    : getIcon('shopping-cart'),
                                 color: palette.primary['main'],
                                 height: 26.0,
                                 semanticsLabel: 'Cart'),
