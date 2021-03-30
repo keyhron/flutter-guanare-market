@@ -63,15 +63,7 @@ class HomePage extends StatelessWidget {
                   height: 106,
                 ),
                 SizedBox(
-                  height: 20,
-                ),
-                ListProductsHorizontal(
-                  title: 'Más vendidos',
-                  products: products,
-                  height: 300,
-                ),
-                SizedBox(
-                  height: 80,
+                  height: 46,
                 ),
               ],
             ),

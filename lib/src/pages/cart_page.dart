@@ -39,23 +39,26 @@ class CartPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 14.0),
                   child: Column(
                     children: [
-                      SingleChildScrollView(
-                        physics: BouncingScrollPhysics(),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 12,
-                            ),
-                            CardProductCart(products[1]),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            CardProductCart(products[2]),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            CardProductCart(products[4]),
-                          ],
+                      Container(
+                        height: size.height - 360,
+                        child: SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 12,
+                              ),
+                              CardProductCart(products[1]),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              CardProductCart(products[2]),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              CardProductCart(products[4]),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
