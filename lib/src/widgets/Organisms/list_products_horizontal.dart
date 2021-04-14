@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:guanare_market/src/theme/theme_light.dart';
 import 'package:guanare_market/src/widgets/Molecules/card_product.dart';
 import 'package:guanare_market/src/widgets/Molecules/dots.dart';
@@ -60,7 +61,12 @@ class _ListProductsHorizontalState extends State<ListProductsHorizontal> {
                 scrollDirection: Axis.horizontal,
                 itemCount: widget.products.length,
                 itemBuilder: (BuildContext context, int i) {
-                  return CardProduct(widget.products[i]);
+                  return GestureDetector(
+                      onTap: () {
+                        Get.toNamed('product-details',
+                            arguments: widget.products[i]);
+                      },
+                      child: CardProduct(widget.products[i]));
                 }),
           ),
         ],

@@ -19,7 +19,7 @@ class MenuPage extends StatelessWidget {
           width: size.width,
           child: Column(
             children: [
-              Navbar(
+              CustomAppBar(
                 title: 'Guanare Market',
                 subtitle: 'Menú de navegación',
                 dark: true,

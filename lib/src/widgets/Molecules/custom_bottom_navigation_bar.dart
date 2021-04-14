@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:guanare_market/src/pages/cart_page.dart';
-import 'package:guanare_market/src/pages/home_page.dart';
+import 'package:get/route_manager.dart';
+
 import 'package:guanare_market/src/theme/palette.dart';
 import 'package:guanare_market/src/utils/get_assets.dart' show getIcon;
 
@@ -10,7 +10,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final Palette palette = Palette();
     final size = MediaQuery.of(context).size;
-    final routeName = ModalRoute.of(context)!.settings.name;
+    final routeName = Get.currentRoute;
 
     return Container(
       height: 80,
@@ -58,13 +58,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                          Navigator.pushReplacement(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (_, __, ___) => HomePage(),
-                                transitionDuration: Duration(seconds: 0),
-                                settings: RouteSettings(name: 'home')),
-                          );
+                          Get.toNamed('home');
                         }),
                   ),
                   Spacer(),
@@ -87,13 +81,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                          Navigator.pushReplacement(
-                            context,
-                            PageRouteBuilder(
-                                pageBuilder: (_, __, ___) => CartPage(),
-                                transitionDuration: Duration(seconds: 0),
-                                settings: RouteSettings(name: 'cart')),
-                          );
+                          Get.toNamed('cart');
                         }),
                   ),
                 ],

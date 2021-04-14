@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:guanare_market/src/models/product_model.dart';
 import 'package:guanare_market/src/theme/theme_light.dart';
+import 'package:guanare_market/src/utils/get_assets.dart';
 
 class CardProduct extends StatelessWidget {
   final Product product;
@@ -23,11 +24,14 @@ class CardProduct extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
                 child: Stack(
                   children: [
-                    Image.asset(
-                      product.image,
-                      fit: BoxFit.cover,
-                      width: widthCard,
-                      height: 200,
+                    Hero(
+                      tag: product.image,
+                      child: Image.asset(
+                        product.image,
+                        fit: BoxFit.cover,
+                        width: widthCard,
+                        height: 200,
+                      ),
                     ),
                     Positioned(
                       bottom: 0,
@@ -50,7 +54,7 @@ class CardProduct extends StatelessWidget {
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 10.0),
                                         child: SvgPicture.asset(
-                                            'assets/icons/shopping-cart.svg',
+                                            getIcon('shopping-cart'),
                                             color: palette.secondary['main'],
                                             height: 20.0,
                                             semanticsLabel: 'Cart')),
@@ -62,7 +66,11 @@ class CardProduct extends StatelessWidget {
                                 ElevatedButton(
                                   onPressed: () {},
                                   child: Container(
-                                      child: Icon(Icons.favorite_outline)),
+                                      child: SvgPicture.asset(
+                                    getIcon('heart'),
+                                    color: Colors.white,
+                                    height: 20,
+                                  )),
                                 )
                               ],
                             ),

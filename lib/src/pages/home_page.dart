@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
             physics: BouncingScrollPhysics(),
             child: Column(
               children: [
-                Navbar(
+                CustomAppBar(
                   title: 'Guanare Market',
                   subtitle: '¿Qué esperas para comprar?',
                 ),
