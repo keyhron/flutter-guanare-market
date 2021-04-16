@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:guanare_market/src/models/product_model.dart';
 import 'package:guanare_market/src/theme/palette.dart';
 import 'package:guanare_market/src/theme/theme_light.dart';
@@ -29,51 +30,59 @@ class CardProductCart extends StatelessWidget {
           borderRadius: BorderRadius.circular(20)),
       child: Column(
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: 120,
-                width: 110,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Image.asset(
-                    product.image,
-                    fit: BoxFit.cover,
+          GestureDetector(
+            onTap: () {
+              Get.toNamed('product-details', arguments: product);
+            },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 120,
+                  width: 110,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: Hero(
+                      tag: product.images[0],
+                      child: Image.asset(
+                        product.images[0],
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: 20.0,
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Text(
-                      '${product.name}',
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: true,
-                      maxLines: 2,
-                      style: CustomTheme.lightTheme.textTheme.bodyText2!
-                          .copyWith(fontSize: 18),
-                    ),
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Text(
-                      '\$ ${product.priceFormated}',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: CustomTheme.lightTheme.textTheme.headline2,
-                    ),
-                  ],
+                SizedBox(
+                  width: 20.0,
                 ),
-              )
-            ],
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        '${product.name}',
+                        overflow: TextOverflow.ellipsis,
+                        softWrap: true,
+                        maxLines: 2,
+                        style: CustomTheme.lightTheme.textTheme.bodyText2!
+                            .copyWith(fontSize: 18),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Text(
+                        '\$ ${product.priceFormated}',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: CustomTheme.lightTheme.textTheme.headline2,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
           SizedBox(
             height: 10.0,

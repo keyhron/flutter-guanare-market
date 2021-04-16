@@ -1,9 +1,15 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/route_manager.dart';
+
+// Models
 import 'package:guanare_market/src/models/product_model.dart';
+
+// Theme
 import 'package:guanare_market/src/theme/theme_light.dart';
+
+// Utils
 import 'package:guanare_market/src/utils/get_assets.dart';
 
 class CardProduct extends StatelessWidget {
@@ -25,9 +31,9 @@ class CardProduct extends StatelessWidget {
                 child: Stack(
                   children: [
                     Hero(
-                      tag: product.image,
+                      tag: product.images[0],
                       child: Image.asset(
-                        product.image,
+                        product.images[0],
                         fit: BoxFit.cover,
                         width: widthCard,
                         height: 200,
@@ -49,7 +55,10 @@ class CardProduct extends StatelessWidget {
                               children: [
                                 Expanded(
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Get.toNamed('product-details',
+                                          arguments: product);
+                                    },
                                     child: Container(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 10.0),

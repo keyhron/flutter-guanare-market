@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/route_manager.dart';
 
-class CustomFloatingActionButton extends StatelessWidget {
-  final Widget child;
-  final void Function() onPressed;
+// Pages
+import 'package:guanare_market/src/pages/search_result.dart';
+
+// Theme
+import 'package:guanare_market/src/theme/palette.dart';
+
+// Widget
+import 'package:guanare_market/src/widgets/Organisms/search_products.dart';
+
+class FloatingActionButtonSearch extends StatelessWidget {
   final double size;
 
-  CustomFloatingActionButton({
-    required this.child,
-    required this.onPressed,
-    required this.size,
-  });
+  FloatingActionButtonSearch({this.size = 80.0});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,18 @@ class CustomFloatingActionButton extends StatelessWidget {
             offset: Offset(0.0, 0.0))
       ]),
       child: FloatingActionButton(
-        child: child,
-        onPressed: onPressed,
+        child: SvgPicture.asset('assets/icons/search.svg',
+            color: Palette().secondary['main'], semanticsLabel: 'Search'),
+        onPressed: () async {
+          final List<SearchResult> history = [];
+
+          final result = await showSearch(
+              context: context, delegate: SearchProducts(history));
+
+          if (!result!.isCancel && result.product != null) {
+            Get.toNamed('product-details', arguments: result.product);
+          }
+        },
       ),
     );
   }

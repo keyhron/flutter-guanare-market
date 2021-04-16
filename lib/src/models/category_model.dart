@@ -1,30 +1,40 @@
-import 'package:guanare_market/src/utils/get_assets.dart' show getImage;
+import 'package:guanare_market/src/utils/get_assets.dart'
+    show getIcon, getImage;
 
 class Category {
-  const Category({required this.name, required this.image});
+  const Category(
+      {required this.name,
+      required this.image,
+      required this.icon,
+      required this.realName});
 
-  final String name, image;
+  final String name, image, icon, realName;
 }
 
 final categories = <Category>[
   Category(
-    name: 'Ropa',
-    image: getImage('shirt2.jpg'),
-  ),
+      realName: 'clothes',
+      name: 'Ropa',
+      image: getImage('shirt2.jpg'),
+      icon: getIcon('checkroom')),
   Category(
-    name: 'Vehículos',
-    image: getImage('car2.jpg'),
-  ),
+      realName: 'vehicles',
+      name: 'Vehículos',
+      image: getImage('car2.jpg'),
+      icon: getIcon('car')),
   Category(
-    name: 'Electrónica',
-    image: getImage('laptop.jpg'),
-  ),
+      realName: 'electronics',
+      name: 'Electrónica',
+      image: getImage('laptop.jpg'),
+      icon: getIcon('computer')),
   Category(
-    name: 'Télefonos',
-    image: getImage('phone.jpg'),
-  ),
+      realName: 'phones',
+      name: 'Télefonos',
+      image: getImage('phone.jpg'),
+      icon: getIcon('smartphone')),
   Category(
-    name: 'Comida',
-    image: getImage('restaurant.jpg'),
-  ),
+      realName: 'food',
+      name: 'Comida',
+      image: getImage('restaurant.jpg'),
+      icon: getIcon('restaurant')),
 ];
