@@ -13,24 +13,30 @@ class CustomAppBar extends StatelessWidget {
   final String? subtitle;
   final bool dark;
   final bool isBack;
+  final bool backgroundOpacity;
 
   const CustomAppBar(
-      {this.title, this.subtitle, this.dark = false, this.isBack = false});
+      {this.title,
+      this.subtitle,
+      this.dark = false,
+      this.isBack = false,
+      this.backgroundOpacity = false});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: true,
-      bottom: false,
-      child: validateAppBar(),
-    );
+    return DecoratedBox(
+        decoration: BoxDecoration(
+            color: backgroundOpacity ? Color(0xfffafafa) : Colors.transparent),
+        child: SafeArea(
+          top: true,
+          bottom: false,
+          child: validateAppBar(),
+        ));
   }
 
   Widget validateAppBar() {
     final Palette palette = Palette();
     final routeName = Get.currentRoute;
-
-    print(isBack);
 
     if (isBack) {
       return Container(

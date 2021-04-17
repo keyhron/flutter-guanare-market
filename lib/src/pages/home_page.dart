@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:guanare_market/src/controllers/products_controller.dart';
 
 // Models
 import 'package:guanare_market/src/models/category_model.dart';
-import 'package:guanare_market/src/models/product_model.dart';
 
 // Widgets
 import 'package:guanare_market/src/widgets/Atoms/custom_floating_action_button.dart';
@@ -16,6 +17,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final ProductsController productsController = Get.find();
 
     return Scaffold(
       bottomNavigationBar: CustomBottomNavigationBar(),
@@ -43,7 +45,7 @@ class HomePage extends StatelessWidget {
                 ),
                 ListProductsHorizontal(
                   title: 'Novedades de hoy',
-                  products: products,
+                  products: productsController.products,
                   height: 300,
                 ),
                 SizedBox(

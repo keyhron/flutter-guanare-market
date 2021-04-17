@@ -1,7 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:guanare_market/src/controllers/cart_controller.dart';
+import 'package:guanare_market/src/controllers/products_controller.dart';
 
 // Models
 import 'package:guanare_market/src/models/product_model.dart';
@@ -20,6 +23,8 @@ class CardProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final double widthCard = size.width * 0.6;
+    final ProductsController productsController = Get.find();
+    final CartController cartController = Get.find();
 
     return Container(
         width: widthCard,
@@ -31,9 +36,13 @@ class CardProduct extends StatelessWidget {
                 child: Stack(
                   children: [
                     Hero(
-                      tag: product.images[0],
+                      tag: productsController
+                          .findProduct(this.product.id)!
+                          .images[0],
                       child: Image.asset(
-                        product.images[0],
+                        productsController
+                            .findProduct(this.product.id)!
+                            .images[0],
                         fit: BoxFit.cover,
                         width: widthCard,
                         height: 200,
@@ -54,19 +63,39 @@ class CardProduct extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Expanded(
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      Get.toNamed('product-details',
-                                          arguments: product);
-                                    },
-                                    child: Container(
+                                  child: Obx(
+                                    () => ElevatedButton(
+                                      onPressed: productsController
+                                              .findProduct(this.product.id)!
+                                              .isCart
+                                          ? () {}
+                                          : () {
+                                              if (productsController
+                                                      .findProduct(
+                                                          this.product.id) !=
+                                                  null) {
+                                                cartController.newProduct(
+                                                    productsController
+                                                        .findProduct(
+                                                            this.product.id)!);
+                                              }
+                                            },
+                                      child: Container(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 10.0),
                                         child: SvgPicture.asset(
-                                            getIcon('shopping-cart'),
+                                            !productsController
+                                                    .findProduct(
+                                                        this.product.id)!
+                                                    .isCart
+                                                ? getIcon('shopping-cart')
+                                                : getIcon(
+                                                    'shopping-cart-filled'),
                                             color: palette.secondary['main'],
                                             height: 20.0,
-                                            semanticsLabel: 'Cart')),
+                                            semanticsLabel: 'Cart'),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -103,7 +132,7 @@ class CardProduct extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      product.name,
+                      productsController.findProduct(this.product.id)!.name,
                       style: CustomTheme.lightTheme.textTheme.bodyText2,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
@@ -112,7 +141,7 @@ class CardProduct extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      '\$ ${product.priceFormated}',
+                      '\$ ${productsController.findProduct(this.product.id)!.priceFormated}',
                       style: CustomTheme.lightTheme.textTheme.headline4,
                       textAlign: TextAlign.center,
                     ),

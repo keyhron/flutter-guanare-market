@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:guanare_market/src/models/product_model.dart';
+
+import 'package:guanare_market/src/controllers/cart_controller.dart';
+
+import 'package:guanare_market/src/models/cart_model.dart';
+
 import 'package:guanare_market/src/theme/palette.dart';
 import 'package:guanare_market/src/theme/theme_light.dart';
+
 import 'package:guanare_market/src/utils/get_assets.dart' show getIcon;
 
 class CardProductCart extends StatelessWidget {
-  final Product product;
-  CardProductCart(this.product);
+  final Cart cart;
+  CardProductCart(this.cart);
 
   @override
   Widget build(BuildContext context) {
     final palette = Palette();
+    final CartController cartController = Get.find();
 
     return Container(
       width: double.infinity,
@@ -32,7 +38,7 @@ class CardProductCart extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Get.toNamed('product-details', arguments: product);
+              Get.toNamed('product-details', arguments: cart.product.id);
             },
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,9 +49,9 @@ class CardProductCart extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
                     child: Hero(
-                      tag: product.images[0],
+                      tag: cart.product.images[0],
                       child: Image.asset(
-                        product.images[0],
+                        cart.product.images[0],
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -62,7 +68,7 @@ class CardProductCart extends StatelessWidget {
                         height: 20.0,
                       ),
                       Text(
-                        '${product.name}',
+                        '${cart.product.name}',
                         overflow: TextOverflow.ellipsis,
                         softWrap: true,
                         maxLines: 2,
@@ -73,7 +79,7 @@ class CardProductCart extends StatelessWidget {
                         height: 20.0,
                       ),
                       Text(
-                        '\$ ${product.priceFormated}',
+                        '\$ ${cart.product.priceFormated}',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: CustomTheme.lightTheme.textTheme.headline2,
@@ -104,7 +110,10 @@ class CardProductCart extends StatelessWidget {
                                   borderRadius: BorderRadius.horizontal(
                                       right: Radius.zero,
                                       left: Radius.circular(4.0)))),
-                          onPressed: () {},
+                          onPressed: () {
+                            cartController.updateProductCount(
+                                id: cart.product.id, value: cart.count - 1);
+                          },
                           child: SvgPicture.asset(getIcon('minus'),
                               color: palette.primary['main'],
                               width: 20.0,
@@ -123,7 +132,7 @@ class CardProductCart extends StatelessWidget {
                           elevation: 2,
                         ),
                         onPressed: () {},
-                        child: Text('1',
+                        child: Text('${cart.count}',
                             style: CustomTheme.lightTheme.textTheme.bodyText1),
                       ),
                     ),
@@ -138,7 +147,10 @@ class CardProductCart extends StatelessWidget {
                                   borderRadius: BorderRadius.horizontal(
                                       left: Radius.zero,
                                       right: Radius.circular(4.0)))),
-                          onPressed: () {},
+                          onPressed: () {
+                            cartController.updateProductCount(
+                                id: cart.product.id, value: cart.count + 1);
+                          },
                           child: SvgPicture.asset(getIcon('plus'),
                               width: 20.0,
                               height: 20.0,
@@ -164,12 +176,14 @@ class CardProductCart extends StatelessWidget {
                         color: palette.primary['lighter'],
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      cartController.deleteProduct(cart.product.id);
+                    },
                   ),
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
     );

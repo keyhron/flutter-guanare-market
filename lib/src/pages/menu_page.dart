@@ -33,6 +33,7 @@ class MenuPage extends StatelessWidget {
                   width: 300,
                   height: size.height * 0.813,
                   child: ListView.separated(
+                    physics: BouncingScrollPhysics(),
                     itemCount: links.length,
                     separatorBuilder: (context, i) {
                       return SizedBox(

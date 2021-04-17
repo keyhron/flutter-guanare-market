@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:guanare_market/src/controllers/products_controller.dart';
 import 'package:guanare_market/src/models/product_model.dart';
 import 'package:guanare_market/src/pages/search_result.dart';
 import 'package:guanare_market/src/theme/palette.dart';
@@ -10,6 +12,7 @@ class SearchProducts extends SearchDelegate<SearchResult> {
   final String searchFieldLabel;
   final List<SearchResult> history;
   final palette = Palette();
+  final ProductsController productsController = Get.find();
 
   SearchProducts(this.history) : this.searchFieldLabel = 'Buscar...';
 
@@ -38,6 +41,7 @@ class SearchProducts extends SearchDelegate<SearchResult> {
   Widget buildSuggestions(BuildContext context) {
     if (this.query.length == 0) {
       return ListView(
+        physics: BouncingScrollPhysics(),
         children: [
           ...this
               .history
@@ -65,7 +69,7 @@ class SearchProducts extends SearchDelegate<SearchResult> {
       return Container();
     }
 
-    final productsFilter = products
+    final productsFilter = productsController.products
         .where((e) => e.name.toLowerCase().contains(query.toLowerCase()))
         .toList();
 
@@ -76,6 +80,7 @@ class SearchProducts extends SearchDelegate<SearchResult> {
     }
 
     return ListView.separated(
+      physics: BouncingScrollPhysics(),
       itemCount: productsFilter.length,
       separatorBuilder: (_, i) => Divider(),
       itemBuilder: (_, i) {
