@@ -25,6 +25,31 @@ class ProductDetailsPage extends StatelessWidget {
           'La página que intentas visitar no se encuentra disponible');
     }
 
+    Widget _customImage(String imageURL, Size size) {
+      return GestureDetector(
+        onTap: () {
+          Get.toNamed('photo-view', arguments: imageURL);
+        },
+        child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black45,
+                width: 0.5,
+              ),
+              borderRadius: BorderRadius.all(Radius.circular(10.0))),
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            child: Image.asset(
+              imageURL,
+              fit: BoxFit.cover,
+              width: size.width * 0.6,
+              height: double.infinity,
+            ),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       body: Container(
         child: Stack(
@@ -50,12 +75,12 @@ class ProductDetailsPage extends StatelessWidget {
                           return Hero(
                               tag:
                                   productsController.findProduct(id)!.images[i],
-                              child: customImage(
+                              child: _customImage(
                                   productsController.findProduct(id)!.images[i],
                                   size));
                         }
 
-                        return customImage(
+                        return _customImage(
                             productsController.findProduct(id)!.images[i],
                             size);
                       },
@@ -92,11 +117,16 @@ class ProductDetailsPage extends StatelessWidget {
                           ],
                         ),
                         SizedBox(height: 12),
-                        Text('Ver más información del vendedor',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                decoration: TextDecoration.underline)),
+                        GestureDetector(
+                          onTap: () {
+                            Get.toNamed('seller');
+                          },
+                          child: Text('Ver más información del vendedor',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  decoration: TextDecoration.underline)),
+                        ),
                       ],
                     ),
                   ),
@@ -108,7 +138,7 @@ class ProductDetailsPage extends StatelessWidget {
                       children: [
                         Text(
                           'Descripción',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: CustomTheme.lightTheme.textTheme.headline4,
                         ),
                         SizedBox(height: 10),
                         Text(
@@ -124,7 +154,7 @@ class ProductDetailsPage extends StatelessWidget {
             ),
             Positioned(
               bottom: 0,
-              height: 100,
+              height: 80,
               width: size.width,
               child: Obx(
                 () => ElevatedButton(
@@ -165,31 +195,6 @@ class ProductDetailsPage extends StatelessWidget {
               ),
             )
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget customImage(String imageURL, Size size) {
-    return GestureDetector(
-      onTap: () {
-        Get.toNamed('photo-view', arguments: imageURL);
-      },
-      child: Container(
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black45,
-              width: 0.5,
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(10.0))),
-        child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          child: Image.asset(
-            imageURL,
-            fit: BoxFit.cover,
-            width: size.width * 0.6,
-            height: double.infinity,
-          ),
         ),
       ),
     );

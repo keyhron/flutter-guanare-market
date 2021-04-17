@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:guanare_market/src/controllers/products_controller.dart';
+import 'package:guanare_market/src/utils/get_assets.dart';
 
 class InitPage extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _InitPageState extends State<InitPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CircularProgressIndicator(),
+        child: Image.asset(getImage('guanare-market-logo.png')),
       ),
     );
   }

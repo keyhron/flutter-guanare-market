@@ -11,6 +11,7 @@ import 'package:guanare_market/src/pages/home_page.dart';
 import 'package:guanare_market/src/pages/init_page.dart';
 import 'package:guanare_market/src/pages/menu_page.dart';
 import 'package:guanare_market/src/pages/product_details_page.dart';
+import 'package:guanare_market/src/pages/seller_page.dart';
 import 'package:guanare_market/src/pages/photo_view.dart';
 
 // Theme Light
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
             transition: Transition.noTransition),
         GetPage(name: 'menu', page: () => MenuPage()),
         GetPage(name: 'product-details', page: () => ProductDetailsPage()),
+        GetPage(name: 'seller', page: () => SellerPage()),
         GetPage(
             name: 'photo-view',
             page: () => PhotoViewPage(),

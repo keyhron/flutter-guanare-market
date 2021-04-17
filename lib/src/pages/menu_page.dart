@@ -27,11 +27,9 @@ class MenuPage extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
+              Expanded(
                 child: Container(
                   width: 300,
-                  height: size.height * 0.813,
                   child: ListView.separated(
                     physics: BouncingScrollPhysics(),
                     itemCount: links.length,

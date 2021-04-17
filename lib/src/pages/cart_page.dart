@@ -19,6 +19,23 @@ class CartPage extends StatelessWidget {
 
     final CartController cartController = Get.find();
 
+    Widget _rowCart(String leftText, String rightText) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            leftText,
+            style: TextStyle(
+                color: palette.secondary['ultraDark']!.withOpacity(0.8),
+                fontWeight: FontWeight.bold),
+          ),
+          Text(rightText,
+              style: CustomTheme.lightTheme.textTheme.headline4!
+                  .copyWith(color: palette.secondary['main'])),
+        ],
+      );
+    }
+
     return Scaffold(
       bottomNavigationBar: CustomBottomNavigationBar(),
       floatingActionButton: FloatingActionButtonSearch(),
@@ -37,18 +54,13 @@ class CartPage extends StatelessWidget {
                     Expanded(
                       child: Obx(
                         () => ListView.separated(
-                          physics: BouncingScrollPhysics(),
-                          itemCount: cartController.cartProducts.length,
-                          separatorBuilder: (_, __) {
-                            return SizedBox(
-                              height: 12,
-                            );
-                          },
-                          itemBuilder: (_, i) {
-                            return CardProductCart(
-                                cartController.cartProducts[i]);
-                          },
-                        ),
+                            physics: BouncingScrollPhysics(),
+                            itemCount: cartController.cartProducts.length,
+                            separatorBuilder: (_, __) => SizedBox(
+                                  height: 12,
+                                ),
+                            itemBuilder: (_, i) => CardProductCart(
+                                cartController.cartProducts[i])),
                       ),
                     ),
                     SizedBox(
@@ -72,43 +84,13 @@ class CartPage extends StatelessWidget {
                       child: Obx(
                         () => Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Cantidad de productos',
-                                  style: TextStyle(
-                                      color: palette.secondary['ultraDark']!
-                                          .withOpacity(0.8),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text('${cartController.productsCount()}',
-                                    style: CustomTheme
-                                        .lightTheme.textTheme.headline4!
-                                        .copyWith(
-                                            color: palette.secondary['main'])),
-                              ],
-                            ),
+                            _rowCart('Cantidad de productos',
+                                '${cartController.productsCount()}'),
                             SizedBox(
                               height: 16,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Precios de productos',
-                                  style: TextStyle(
-                                      color: palette.secondary['ultraDark']!
-                                          .withOpacity(0.8),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Text('\$ ${cartController.productsPrices()}',
-                                    style: CustomTheme
-                                        .lightTheme.textTheme.headline4!
-                                        .copyWith(
-                                            color: palette.secondary['main'])),
-                              ],
-                            ),
+                            _rowCart('Precios de productos',
+                                '\$ ${cartController.productsPrices()}'),
                             SizedBox(
                               height: 16,
                             ),

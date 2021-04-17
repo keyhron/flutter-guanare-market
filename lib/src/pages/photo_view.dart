@@ -14,7 +14,8 @@ class PhotoViewPage extends StatelessWidget {
         child: Stack(
           children: [
             Center(
-              child: Expanded(
+              child: Container(
+                width: double.infinity,
                 child: Hero(
                   tag: image,
                   child: PhotoView(
