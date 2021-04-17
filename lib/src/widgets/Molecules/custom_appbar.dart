@@ -41,7 +41,7 @@ class CustomAppBar extends StatelessWidget {
     if (isBack) {
       return Container(
         width: double.infinity,
-        margin: EdgeInsets.only(top: 20.0),
+        margin: EdgeInsets.symmetric(vertical: 20.0),
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +89,7 @@ class CustomAppBar extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(top: 20.0),
+      margin: EdgeInsets.symmetric(vertical: 20.0),
       padding: EdgeInsets.only(left: 26.0, right: 12),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

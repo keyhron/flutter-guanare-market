@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
                   subtitle: '¿Qué esperas para comprar?',
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 Container(
                     padding: EdgeInsets.symmetric(horizontal: 30.0),

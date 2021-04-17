@@ -22,6 +22,7 @@ class PhotoViewPage extends StatelessWidget {
                     backgroundDecoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
+                    minScale: PhotoViewComputedScale.contained,
                     imageProvider: AssetImage(image),
                   ),
                 ),
