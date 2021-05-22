@@ -14,7 +14,7 @@ import 'package:guanare_market/src/widgets/Organisms/search_products.dart';
 class FloatingActionButtonSearch extends StatelessWidget {
   final double size;
 
-  FloatingActionButtonSearch({this.size = 80.0});
+  FloatingActionButtonSearch({this.size = 75.0});
 
   @override
   Widget build(BuildContext context) {
