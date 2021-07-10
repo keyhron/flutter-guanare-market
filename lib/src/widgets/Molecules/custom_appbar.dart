@@ -35,13 +35,12 @@ class CustomAppBar extends StatelessWidget {
   }
 
   Widget validateAppBar() {
-    final Palette palette = Palette();
     final routeName = Get.currentRoute;
 
     if (isBack) {
       return Container(
         width: double.infinity,
-        margin: EdgeInsets.symmetric(vertical: 20.0),
+        margin: EdgeInsets.symmetric(vertical: 10.0),
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,17 +100,16 @@ class CustomAppBar extends StatelessWidget {
                 Text(
                   this.title!,
                   style: CustomTheme.lightTheme.textTheme.headline2!.copyWith(
-                      color: dark
-                          ? palette.secondary['main']
-                          : palette.primary['main']),
+                      color:
+                          dark ? palette.secondary.main : palette.primary.main),
                 ),
               if (this.subtitle != null)
                 Text(
                   this.subtitle!,
                   style: CustomTheme.lightTheme.textTheme.bodyText1!.copyWith(
                       color: dark
-                          ? palette.secondary['ultraDark']
-                          : palette.primary['main']),
+                          ? palette.secondary.ultraDark
+                          : palette.primary.main),
                 ),
             ],
           ),
@@ -131,7 +129,7 @@ class CustomAppBar extends StatelessWidget {
                             Container(
                               width: 20,
                               height: 2,
-                              color: palette.primary['main'],
+                              color: palette.primary.main,
                             ),
                             SizedBox(
                               height: 5,
@@ -139,14 +137,14 @@ class CustomAppBar extends StatelessWidget {
                             Container(
                               width: 16,
                               height: 2,
-                              color: palette.primary['main'],
+                              color: palette.primary.main,
                             ),
                           ],
                         )
                       : Container(
                           child: SvgPicture.asset(
                             'assets/icons/x.svg',
-                            color: palette.secondary['main'],
+                            color: palette.secondary.main,
                           ),
                         ),
                 ),

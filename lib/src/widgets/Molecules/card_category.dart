@@ -43,7 +43,7 @@ class CardCategory extends StatelessWidget {
             child: Text(
               category.name,
               style: CustomTheme.lightTheme.textTheme.headline1!.copyWith(
-                  color: palette.secondary['ultraDark'],
+                  color: palette.secondary.ultraDark,
                   fontSize: 24,
                   fontWeight: FontWeight.bold),
             ),

@@ -13,7 +13,7 @@ class MenuPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Palette().primary['main'],
+      backgroundColor: palette.primary.main,
       body: Container(
           height: size.height,
           width: size.width,
@@ -72,7 +72,7 @@ class LinkMenu extends StatelessWidget {
             SvgPicture.asset(link.icon,
                 width: 24,
                 height: 24,
-                color: palette.secondary['main'],
+                color: palette.secondary.main,
                 semanticsLabel: link.title),
             SizedBox(
               width: 20,

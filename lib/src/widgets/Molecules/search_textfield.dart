@@ -30,16 +30,16 @@ class SearchTextField extends StatelessWidget {
       prefix: Container(
           padding: EdgeInsets.only(left: 16.0),
           child: SvgPicture.asset('assets/icons/search.svg',
-              color: palette.secondary['lighter'], semanticsLabel: 'Search')),
+              semanticsLabel: 'Search')),
       placeholder: 'Buscar',
       placeholderStyle: TextStyle(
           fontWeight: FontWeight.bold, color: CupertinoColors.placeholderText),
-      cursorColor: palette.primary['main'],
+      cursorColor: palette.primary.main,
       cursorHeight: 22,
       padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 13.0),
       style: CustomTheme.lightTheme.textTheme.bodyText2,
       decoration: BoxDecoration(
-          color: palette.secondary['dark'],
+          color: palette.secondary.dark,
           borderRadius: BorderRadius.circular(10)),
     );
   }

@@ -25,10 +25,8 @@ class _Dot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final palette = Palette();
-    final Color? color = current == index
-        ? palette.primary['main']
-        : palette.secondary['ultraDark'];
+    final Color? color =
+        current == index ? palette.primary.main : palette.secondary.ultraDark;
 
     final size = current == index ? 10.0 : 8.0;
 

@@ -17,7 +17,6 @@ class CardProductCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final palette = Palette();
     final CartController cartController = Get.find();
 
     return Container(
@@ -48,12 +47,9 @@ class CardProductCart extends StatelessWidget {
                   width: 110,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
-                    child: Hero(
-                      tag: cart.product.images[0],
-                      child: Image.asset(
-                        cart.product.images[0],
-                        fit: BoxFit.cover,
-                      ),
+                    child: Image.asset(
+                      cart.product.images[0],
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -104,7 +100,7 @@ class CardProductCart extends StatelessWidget {
                       height: 40,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: palette.secondary['main'],
+                              primary: palette.secondary.main,
                               padding: EdgeInsets.all(0),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.horizontal(
@@ -115,7 +111,7 @@ class CardProductCart extends StatelessWidget {
                                 id: cart.product.id, value: cart.count - 1);
                           },
                           child: SvgPicture.asset(getIcon('minus'),
-                              color: palette.primary['main'],
+                              color: palette.primary.main,
                               width: 20.0,
                               height: 20.0,
                               semanticsLabel: 'Minus')),
@@ -125,7 +121,7 @@ class CardProductCart extends StatelessWidget {
                       height: 40,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: palette.secondary['main'],
+                          primary: palette.secondary.main,
                           padding: EdgeInsets.all(0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.zero),
@@ -141,7 +137,7 @@ class CardProductCart extends StatelessWidget {
                       height: 40,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: palette.secondary['main'],
+                              primary: palette.secondary.main,
                               padding: EdgeInsets.all(0),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.horizontal(
@@ -154,7 +150,7 @@ class CardProductCart extends StatelessWidget {
                           child: SvgPicture.asset(getIcon('plus'),
                               width: 20.0,
                               height: 20.0,
-                              color: palette.primary['main'],
+                              color: palette.primary.main,
                               semanticsLabel: 'Plus')),
                     ),
                   ],
@@ -167,13 +163,13 @@ class CardProductCart extends StatelessWidget {
                     icon: SvgPicture.asset(getIcon('trash'),
                         width: 16.0,
                         height: 16.0,
-                        color: palette.primary['lighter'],
+                        color: palette.primary.lighter,
                         semanticsLabel: 'Delete'),
                     label: Text(
                       'Remover',
                       style: TextStyle(
                         fontSize: 14,
-                        color: palette.primary['lighter'],
+                        color: palette.primary.lighter,
                       ),
                     ),
                     onPressed: () {

@@ -44,7 +44,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    final Palette palette = Palette();
     final size = MediaQuery.of(context).size;
 
     return BottomAppBar(
@@ -55,12 +54,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         top: false,
         bottom: true,
         child: Container(
-          padding: EdgeInsets.only(
-              top: 10, left: size.width * 0.08, right: size.width * 0.08),
+          padding:
+              EdgeInsets.symmetric(vertical: 10, horizontal: size.width * 0.08),
           child: GNav(
               haptic: true,
               tabBorderRadius: 10,
-              color: palette.primary['main'],
+              color: palette.primary.main,
               activeColor: Colors.white,
               iconSize: 24,
               tabBackgroundColor: Colors.purple.withOpacity(0.1),
@@ -91,11 +90,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 GButton(
                   icon: Icons.home,
                   text: 'Inicio',
-                  backgroundColor: palette.primary['main'],
+                  backgroundColor: palette.primary.main,
                   textColor: Colors.white,
                   leading: SvgPicture.asset(
                     _index == 0 ? getIcon('home-filled') : getIcon('home'),
-                    color: _index == 0 ? Colors.white : palette.primary['main'],
+                    color: _index == 0 ? Colors.white : palette.primary.main,
                     height: 20.0,
                     semanticsLabel: 'Cart',
                   ),
@@ -104,11 +103,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   icon: Icons.add_box,
                   leading: SvgPicture.asset(getIcon('shopping-bag'),
                       color:
-                          _index == 1 ? Colors.white : palette.primary['main'],
+                          _index == 1 ? Colors.white : palette.primary.main,
                       height: 20.0,
                       semanticsLabel: 'Products'),
                   text: 'Productos',
-                  backgroundColor: palette.primary['main'],
+                  backgroundColor: palette.primary.main,
                   textColor: Colors.white,
                 ), */
                 GButton(
@@ -117,12 +116,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                     _index == 1
                         ? getIcon('shopping-cart-filled')
                         : getIcon('shopping-cart'),
-                    color: _index == 1 ? Colors.white : palette.primary['main'],
+                    color: _index == 1 ? Colors.white : palette.primary.main,
                     height: 20.0,
                     semanticsLabel: 'Cart',
                   ),
                   text: 'Carrito',
-                  backgroundColor: palette.primary['main'],
+                  backgroundColor: palette.primary.main,
                   textColor: Colors.white,
                 ),
                 /* GButton(

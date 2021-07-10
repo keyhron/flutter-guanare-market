@@ -35,18 +35,11 @@ class CardProduct extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
                 child: Stack(
                   children: [
-                    Hero(
-                      tag: productsController
-                          .findProduct(this.product.id)!
-                          .images[0],
-                      child: Image.asset(
-                        productsController
-                            .findProduct(this.product.id)!
-                            .images[0],
-                        fit: BoxFit.cover,
-                        width: widthCard,
-                        height: 200,
-                      ),
+                    Image.asset(
+                      product.images[0],
+                      fit: BoxFit.cover,
+                      width: widthCard,
+                      height: 200,
                     ),
                     Positioned(
                       bottom: 0,
@@ -91,7 +84,7 @@ class CardProduct extends StatelessWidget {
                                                 ? getIcon('shopping-cart')
                                                 : getIcon(
                                                     'shopping-cart-filled'),
-                                            color: palette.secondary['main'],
+                                            color: palette.secondary.main,
                                             height: 20.0,
                                             semanticsLabel: 'Cart'),
                                       ),
@@ -126,7 +119,7 @@ class CardProduct extends StatelessWidget {
                 width: widthCard,
                 padding: EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
-                  color: palette.secondary['main'],
+                  color: palette.secondary.main,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,

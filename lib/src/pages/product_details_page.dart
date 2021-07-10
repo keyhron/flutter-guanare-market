@@ -54,103 +54,111 @@ class ProductDetailsPage extends StatelessWidget {
       body: Container(
         child: Stack(
           children: [
-            SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              child: Column(
-                children: [
-                  CustomAppBar(isBack: true),
-                  SizedBox(height: 20),
-                  Container(
-                    height: 200,
-                    width: size.width,
-                    child: ListView.separated(
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      itemCount:
-                          productsController.findProduct(id)!.images.length,
-                      separatorBuilder: (_, __) => SizedBox(width: 16),
-                      itemBuilder: (_, int i) {
-                        if (i == 0) {
-                          return Hero(
-                              tag:
-                                  productsController.findProduct(id)!.images[i],
-                              child: _customImage(
-                                  productsController.findProduct(id)!.images[i],
-                                  size));
-                        }
-
-                        return _customImage(
-                            productsController.findProduct(id)!.images[i],
-                            size);
-                      },
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.all(20.0),
+            Column(
+              children: [
+                CustomAppBar(isBack: true),
+                Expanded(
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          productsController.findProduct(id)!.name,
-                          style: CustomTheme.lightTheme.textTheme.headline2,
+                        Container(
+                          height: 200,
+                          width: size.width,
+                          child: ListView.separated(
+                            physics: BouncingScrollPhysics(),
+                            scrollDirection: Axis.horizontal,
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            itemCount: productsController
+                                .findProduct(id)!
+                                .images
+                                .length,
+                            separatorBuilder: (_, __) => SizedBox(width: 16),
+                            itemBuilder: (_, int i) {
+                              return Hero(
+                                  tag: productsController
+                                      .findProduct(id)!
+                                      .images[i],
+                                  child: _customImage(
+                                      productsController
+                                          .findProduct(id)!
+                                          .images[i],
+                                      size));
+                            },
+                          ),
                         ),
-                        SizedBox(height: 12),
-                        Text(
-                            '\$ ${productsController.findProduct(id)!.priceFormated}',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w500)),
-                        SizedBox(height: 12),
-                        Text(
-                          'El precio de envío no está incluido.',
-                          textAlign: TextAlign.right,
-                          style: TextStyle(fontSize: 16),
+                        Container(
+                          padding: EdgeInsets.all(20.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                productsController.findProduct(id)!.name,
+                                style:
+                                    CustomTheme.lightTheme.textTheme.headline2,
+                              ),
+                              SizedBox(height: 12),
+                              Text(
+                                  '\$ ${productsController.findProduct(id)!.priceFormated}',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500)),
+                              SizedBox(height: 12),
+                              Text(
+                                'El precio de envío no está incluido.',
+                                textAlign: TextAlign.right,
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              SizedBox(height: 12),
+                              Row(
+                                children: [
+                                  Text('Por '),
+                                  Text(
+                                    productsController.findProduct(id)!.seller,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 12),
+                              GestureDetector(
+                                onTap: () {
+                                  Get.toNamed('seller');
+                                },
+                                child: Text('Ver más información del vendedor',
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        decoration: TextDecoration.underline)),
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 12),
-                        Row(
-                          children: [
-                            Text('Por '),
-                            Text(
-                              productsController.findProduct(id)!.seller,
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
+                        Divider(),
+                        Container(
+                          padding: EdgeInsets.all(20.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Descripción',
+                                style:
+                                    CustomTheme.lightTheme.textTheme.headline4,
+                              ),
+                              SizedBox(height: 10),
+                              Text(
+                                  'Fugiat ea incididunt cillum sit duis fugiat esse excepteur enim anim. Elit pariatur commodo laborum dolore consectetur qui aliqua. Reprehenderit aute sint exercitation dolor aliqua exercitation irure veniam ex exercitation in nulla aute.'),
+                            ],
+                          ),
                         ),
-                        SizedBox(height: 12),
-                        GestureDetector(
-                          onTap: () {
-                            Get.toNamed('seller');
-                          },
-                          child: Text('Ver más información del vendedor',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  decoration: TextDecoration.underline)),
-                        ),
+                        SizedBox(
+                          height: 140,
+                        )
                       ],
                     ),
                   ),
-                  Divider(),
-                  Container(
-                    padding: EdgeInsets.all(20.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Descripción',
-                          style: CustomTheme.lightTheme.textTheme.headline4,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                            'Fugiat ea incididunt cillum sit duis fugiat esse excepteur enim anim. Elit pariatur commodo laborum dolore consectetur qui aliqua. Reprehenderit aute sint exercitation dolor aliqua exercitation irure veniam ex exercitation in nulla aute.'),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 140,
-                  )
-                ],
-              ),
+                ),
+              ],
             ),
             Positioned(
               bottom: 0,
@@ -175,7 +183,7 @@ class ProductDetailsPage extends StatelessWidget {
                     children: [
                       if (!productsController.findProduct(id)!.isCart)
                         SvgPicture.asset(getIcon('shopping-cart'),
-                            color: palette.secondary['main'],
+                            color: palette.secondary.main,
                             height: 22.0,
                             semanticsLabel: 'Cart'),
                       if (!productsController.findProduct(id)!.isCart)

@@ -6,9 +6,9 @@ import 'package:guanare_market/src/controllers/products_controller.dart';
 import 'package:guanare_market/src/models/category_model.dart';
 
 // Widgets
-import 'package:guanare_market/src/widgets/Atoms/custom_floating_action_button.dart';
-import 'package:guanare_market/src/widgets/Molecules/custom_bottom_navigation_bar.dart';
 import 'package:guanare_market/src/widgets/Molecules/custom_appbar.dart';
+import 'package:guanare_market/src/widgets/Molecules/floating_action_button_nav.dart';
+import 'package:guanare_market/src/widgets/Molecules/floating_action_button_search.dart';
 import 'package:guanare_market/src/widgets/Molecules/search_textfield.dart';
 import 'package:guanare_market/src/widgets/Organisms/list_categories_horizontal.dart';
 import 'package:guanare_market/src/widgets/Organisms/list_products_horizontal.dart';
@@ -20,9 +20,21 @@ class HomePage extends StatelessWidget {
     final ProductsController productsController = Get.find();
 
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(),
-      floatingActionButton: FloatingActionButtonSearch(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: SafeArea(
+        top: false,
+        bottom: true,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            FloatingActionButtonNav(),
+            SizedBox(height: 10),
+            FloatingActionButtonSearch(),
+            SizedBox(height: 20),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       body: Container(
           height: size.height,
           width: size.width,

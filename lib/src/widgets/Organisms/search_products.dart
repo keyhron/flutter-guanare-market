@@ -11,7 +11,6 @@ class SearchProducts extends SearchDelegate<SearchResult> {
   @override
   final String searchFieldLabel;
   final List<SearchResult> history;
-  final palette = Palette();
   final ProductsController productsController = Get.find();
 
   SearchProducts(this.history) : this.searchFieldLabel = 'Buscar...';
@@ -48,7 +47,7 @@ class SearchProducts extends SearchDelegate<SearchResult> {
               .map((result) => ListTile(
                     leading: SvgPicture.asset(
                       result.product!.category.icon,
-                      color: palette.primary['main'],
+                      color: palette.primary.main,
                     ),
                     title: Text(result.product!.name),
                     // subtitle: Text( result.product!.seller ),
@@ -89,7 +88,7 @@ class SearchProducts extends SearchDelegate<SearchResult> {
         return ListTile(
           leading: SvgPicture.asset(
             product.category.icon,
-            color: palette.primary['main'],
+            color: palette.primary.main,
           ),
           title: Text(product.name),
           // subtitle: Text(product.seller),
