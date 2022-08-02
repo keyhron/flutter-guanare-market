@@ -37,7 +37,7 @@ class CardProductCart extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Get.toNamed('product-details', arguments: cart.product.id);
+              Get.toNamed('/product-details', arguments: cart.product.id);
             },
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,

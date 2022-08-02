@@ -68,7 +68,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               selectedIndex: _index,
               onTabChange: (i) {
                 if (i == 0) {
-                  Get.toNamed('home');
+                  Get.toNamed('/home');
                   setState(() {
                     _index = i;
                   });
@@ -77,7 +77,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   print('Products');
                 } */
                 if (i == 1) {
-                  Get.toNamed('cart');
+                  Get.toNamed('/cart');
                 }
                 /* if (i == 3) {
                   print('Profile');

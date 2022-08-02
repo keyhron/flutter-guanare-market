@@ -63,7 +63,7 @@ class _ListProductsHorizontalState extends State<ListProductsHorizontal> {
                 itemBuilder: (BuildContext context, int i) {
                   return GestureDetector(
                       onTap: () {
-                        Get.toNamed('product-details',
+                        Get.toNamed('/product-details',
                             arguments: widget.products[i].id);
                       },
                       child: CardProduct(widget.products[i]));

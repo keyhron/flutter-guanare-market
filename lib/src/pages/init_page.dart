@@ -13,7 +13,7 @@ class _InitPageState extends State<InitPage> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       final ProductsController productsController = Get.find();
       productsController.initProducts();
     });

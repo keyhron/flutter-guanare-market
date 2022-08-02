@@ -10,7 +10,6 @@ class ProductsController extends GetxController {
 
   Product? findProduct(String id) {
     final filterProduct = products.where((p) => p.id == id);
-
     if (filterProduct.length > 0) return filterProduct.first;
 
     return null;
@@ -58,7 +57,7 @@ class ProductsController extends GetxController {
           category: categories.where((e) => e.realName == 'clothes').first,
           seller: 'Juan Barrios'),
     ];
-    Get.toNamed('home');
+    Get.toNamed('/home');
   }
 
   updateProduct(

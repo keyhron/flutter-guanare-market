@@ -4,14 +4,15 @@ class CustomFloatingActionButton extends StatelessWidget {
   final double size;
   final Color color;
   final Widget child;
+  final String heroTag;
   final void Function() onPressed;
 
-  CustomFloatingActionButton({
-    this.size = 75.0,
-    this.color = const Color(0xff2E2C2D),
-    required this.child,
-    required this.onPressed,
-  });
+  CustomFloatingActionButton(
+      {this.size = 75.0,
+      this.color = const Color(0xff2E2C2D),
+      required this.child,
+      required this.onPressed,
+      required this.heroTag});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class CustomFloatingActionButton extends StatelessWidget {
             offset: Offset(0.0, 0.0))
       ]),
       child: FloatingActionButton(
+        heroTag: heroTag,
         backgroundColor: this.color,
         child: this.child,
         onPressed: this.onPressed,

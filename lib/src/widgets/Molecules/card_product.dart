@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 import 'package:guanare_market/src/controllers/cart_controller.dart';
 import 'package:guanare_market/src/controllers/products_controller.dart';
 
@@ -35,11 +34,14 @@ class CardProduct extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
                 child: Stack(
                   children: [
-                    Image.asset(
-                      product.images[0],
-                      fit: BoxFit.cover,
-                      width: widthCard,
-                      height: 200,
+                    Hero(
+                      tag: product.images[0],
+                      child: Image.asset(
+                        product.images[0],
+                        fit: BoxFit.cover,
+                        width: widthCard,
+                        height: 200,
+                      ),
                     ),
                     Positioned(
                       bottom: 0,

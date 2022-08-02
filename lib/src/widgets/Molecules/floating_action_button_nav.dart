@@ -9,12 +9,13 @@ import 'package:guanare_market/src/widgets/Atoms/custom_floating_action_button.d
 
 class FloatingActionButtonNav extends StatelessWidget {
   final double size;
-  FloatingActionButtonNav({this.size = 75.0});
+  FloatingActionButtonNav({this.size = 65.0});
   final currentRoute = Get.currentRoute;
 
   @override
   Widget build(BuildContext context) {
     return CustomFloatingActionButton(
+      heroTag: 'fba-nav',
       size: this.size,
       color: palette.secondary.main,
       child: SvgPicture.asset(

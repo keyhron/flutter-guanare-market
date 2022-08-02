@@ -17,7 +17,7 @@ class SellerPage extends StatelessWidget {
     Widget _customImage(String imageURL, Size size) {
       return GestureDetector(
         onTap: () {
-          Get.toNamed('photo-view', arguments: imageURL);
+          Get.toNamed('/photo-view', arguments: imageURL);
         },
         child: Container(
           decoration: BoxDecoration(

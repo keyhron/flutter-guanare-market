@@ -23,7 +23,7 @@ class SearchTextField extends StatelessWidget {
             context: context, delegate: SearchProducts(history));
 
         if (!result!.isCancel && result.product != null) {
-          Get.toNamed('product-details', arguments: result.product!.id);
+          Get.toNamed('/product-details', arguments: result.product!.id);
         }
       },
       readOnly: true,

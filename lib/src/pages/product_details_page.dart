@@ -28,7 +28,7 @@ class ProductDetailsPage extends StatelessWidget {
     Widget _customImage(String imageURL, Size size) {
       return GestureDetector(
         onTap: () {
-          Get.toNamed('photo-view', arguments: imageURL);
+          Get.toNamed('/photo-view', arguments: imageURL);
         },
         child: Container(
           decoration: BoxDecoration(
@@ -123,7 +123,7 @@ class ProductDetailsPage extends StatelessWidget {
                               SizedBox(height: 12),
                               GestureDetector(
                                 onTap: () {
-                                  Get.toNamed('seller');
+                                  Get.toNamed('/seller');
                                 },
                                 child: Text('Ver más información del vendedor',
                                     style: TextStyle(

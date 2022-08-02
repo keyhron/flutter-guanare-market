@@ -151,7 +151,7 @@ class CustomAppBar extends StatelessWidget {
               ),
               onTap: () {
                 if (routeName != 'menu') {
-                  Get.toNamed('menu');
+                  Get.toNamed('/menu');
                 } else {
                   Get.back();
                 }

@@ -29,25 +29,25 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.lightTheme,
       title: 'Guanare Market',
-      initialRoute: 'init',
+      initialRoute: '/init',
       getPages: [
         GetPage(
-            name: 'init',
+            name: '/init',
             page: () => InitPage(),
             transition: Transition.noTransition),
         GetPage(
-            name: 'home',
+            name: '/home',
             page: () => HomePage(),
             transition: Transition.noTransition),
         GetPage(
-            name: 'cart',
+            name: '/cart',
             page: () => CartPage(),
             transition: Transition.noTransition),
-        GetPage(name: 'menu', page: () => MenuPage()),
-        GetPage(name: 'product-details', page: () => ProductDetailsPage()),
-        GetPage(name: 'seller', page: () => SellerPage()),
+        GetPage(name: '/menu', page: () => MenuPage()),
+        GetPage(name: '/product-details', page: () => ProductDetailsPage()),
+        GetPage(name: '/seller', page: () => SellerPage()),
         GetPage(
-            name: 'photo-view',
+            name: '/photo-view',
             page: () => PhotoViewPage(),
             transition: Transition.noTransition),
       ],

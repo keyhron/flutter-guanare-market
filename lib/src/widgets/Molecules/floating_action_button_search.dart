@@ -14,11 +14,12 @@ import 'package:guanare_market/src/widgets/Organisms/search_products.dart';
 
 class FloatingActionButtonSearch extends StatelessWidget {
   final double size;
-  FloatingActionButtonSearch({this.size = 75.0});
+  FloatingActionButtonSearch({this.size = 65.0});
 
   @override
   Widget build(BuildContext context) {
     return CustomFloatingActionButton(
+      heroTag: 'fba-search',
       size: this.size,
       child: SvgPicture.asset('assets/icons/search.svg',
           color: palette.secondary.main, semanticsLabel: 'Search'),
@@ -29,7 +30,7 @@ class FloatingActionButtonSearch extends StatelessWidget {
             context: context, delegate: SearchProducts(history));
 
         if (!result!.isCancel && result.product != null) {
-          Get.toNamed('product-details', arguments: result.product!.id);
+          Get.toNamed('/product-details', arguments: result.product!.id);
         }
       },
     );
